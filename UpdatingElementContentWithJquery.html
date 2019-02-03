@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+  <h1 id="greeting"></h1>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+  <script>
+    // Using JQuery definitely saves some keystrokes especially when it comes to handling events on a page. However, it still involves having to setup an id in the markup which results sometimes in really tight coupling between the javascript code and the html. So the code becomes dependent on certain elements or ids existing in the DOM.  
+    $('#greeting').text('Hello from JQuery!');
+
+    // A good framework should let me focus exclusively on my data in this case the actual text greeting instead of the having to always worry about which properties of which DOM elements need to be updated.
+
+    // With Vuejs we can take advantage of something called reactivity.
+  </script>
+</html>

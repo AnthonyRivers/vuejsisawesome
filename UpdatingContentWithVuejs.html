@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<div id="app">
+   <h1>{{greetings}}</h1>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    // We need to create a new vue instance and pass the in an options object
+    // that includes the el for the root element selector and the data which
+    // is an object that contains our variables that are really the properties
+    // of the vue instance.
+   new Vue({
+        el: '#app',
+        data: {
+            greetings: 'Hell from Vuejs!'
+        } 
+    });
+
+    // In a large application with many more dynamic elements will lead
+    // to much cleaner markup since we don't need to litter html with
+    // IDs to latch onto things or with span elements that only exist to
+    // contain dynamic text.
+</script>
+

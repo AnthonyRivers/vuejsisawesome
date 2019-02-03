@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<!-- In the flow of execution of a Vuejs app the order matters.
+     The markup defining the entry point for Vuejs must show up
+     first. Since the lines of code on the page are process from
+     top to bottom sequentially the html must come first otherwise
+     if the Vue instance is executed first the root elemment will
+     not be define causing an error in the console.
+    
+     Importing Vuejs framework should come before the script code that
+     creates the Vue instance. Otherwise an error will be thrown because
+     Vue will not be visible to instantiate.
+
+     The script block that instantiates Vue should come after importing
+     the Vuejs framework and after defining the markup that declares the 
+     root element Vuejs uses to create a virtual copy of the DOM which will
+     be the Vuejs app.
+
+ -->
+<div id="app">
+ 
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+    
+    new Vue({
+        el: '#app',
+        data: {
+            
+        }
+
+    });
+</script>

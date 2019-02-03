@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<div id="app">
+    <div class="container">
+        <form class="mt-5">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" v-bind:value="email" class="form-control form-control-lg">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+    new Vue({
+        el:"#app",
+        data: {
+           // using a directive to insert this data value into the 
+           // email input box. The v-bind directive can be use or
+          // the short-hand :value instead.
+           email: 'test@tickles.com' 
+        }
+
+    });
+</script>

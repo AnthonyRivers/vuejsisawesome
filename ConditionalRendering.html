@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<style>
+    // this directive has the effect of hiding the element with pure CSS
+    // but is then remove once Vue is initialized.
+    // Brackets are use here because v-cloak is an attribute.
+    [v-cloak]{
+        display: none;
+    }
+</style>
+<div id="app">
+    <div class="container">
+        <!-- 
+            There are two conditional directives that can be use that take
+            a boolean value. The v-if directive takes a boolean value and
+            if it's true then element is render and if it's false then the
+            element is not render. The v-if directive does not use CSS to
+            hide the element instead it is actually removed from the DOM.
+            The v-else directive can be use with v-if.
+
+            The v-show directive also takes a boolean value and performs
+            the same conditional rendering. However, v-show uses CSS to
+            hide the element. The v-else directive does not work with v-show,
+            so instead the v-show directive is use again in place of v-else.
+        -->
+        <form v-if="!submitted" class="mt-5">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" v-model:value="email" class="form-control form-control-lg">
+            </div>
+
+            <button type="submit" v-on:click="process" class="btn btn-primary">Submit</button>
+        </form>
+
+        <h2 v-else="submitted" v-cloak class="mt-5">Thanks for signing up!</h2>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+    // The vm variable represents the view model and is used to reference
+    // the instance to check the two way binding on the data property when
+    // the input value is changed.
+    // In order to define the two-way data binding the v-model directive
+    // must be use.
+    var vm =  new Vue({
+        el:"#app",
+        data: {
+           // using a directive to insert this data value into the 
+           // email input box. The v-bind directive can be use or
+          // the short-hand :value instead.
+           email: 'test@tickles.com', 
+           submitted: false
+        },
+        methods:{
+            // The v-on can also be dropped and the short-hand use instead
+            // which is @click.
+            process: function(event){
+                // There is a shortcut to using this method, but it needs
+            // to be use on the button v-on attribute like so click.prevent
+                event.preventDefault();
+                this.submitted = true;
+                //alert('Submitted ' + this.email);
+            }
+        }
+
+    });
+</script>

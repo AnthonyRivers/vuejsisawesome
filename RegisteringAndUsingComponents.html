@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<div id="app">
+    <div class="container">
+
+        <antonio-rios></antonio-rios>
+        
+        <another-Component></another-Component>
+        
+        <my-component v-for="i in 10"></my-component>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+
+<script>
+
+    var anotherComponent = {
+        //The data option for a component must be specified as a function
+        //that returns an object.
+        data: function(){
+            return {
+                msg: 'Hello from another component!'
+            }
+        },
+
+        template: '<h1>{{msg}}</h1>'
+    };
+
+    var antonioRios = {
+        data: function(){
+            return {
+                msg: 'Wow! Creating components in Vuejs is freaking awesome!'
+            }
+        },
+
+        template: '<h1>{{msg}}</h1>'
+    };
+
+    // The following component is declared globally, the vue instance does
+    // not need to know about it. The component can be use right away in
+    // the root element. Also any other Vue instances that could be created
+    // in this page can also have access to the component.
+    Vue.component('my-component', {
+
+        template: '<strong>A static element. . .</strong>'
+
+    });
+
+
+    var vm = new Vue({
+        el: '#app',
+        components: {
+            // this component is only visible to this Vue instance.
+            'another-component': anotherComponent,
+            'antonio-rios': antonioRios
+        }
+        
+
+    });
+</script>

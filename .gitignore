@@ -1,3 +1,4 @@
 asteroids/*
 !asteroids/public
 !asteroids/src
+!asteroids/dist
